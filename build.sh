@@ -21,6 +21,8 @@ git clean --force -x
 git am --ignore-space-change --3way < ../patches/0001-Added-EPUB-document-generation.patch
 git am --ignore-space-change --3way < ../patches/0002-Added-conf.py-changes-for-EPUB-generation.patch
 
+sed -i 's#bin/sphinx-build -W -a#bin/sphinx-build -W --keep-going -a#g' admin/build-doc
+
 #export CEPH_THEME="ceph"
 export CEPH_THEME="epub"
 ./admin/build-doc epub

@@ -4,14 +4,14 @@ Date: Mon, 16 Aug 2020 08:00:00 +0200
 Subject: [PATCH] Added conf.py changes for EPUB generation
 
 ---
- doc/conf.py | 14 ++++++++++++++
- 1 file changed, 14 insertions(+)
+ doc/conf.py | 15 +++++++++++++++
+ 1 file changed, 15 insertions(+)
 
 diff --git a/doc/conf.py b/doc/conf.py
 index 34c91bf6cd..2296c871bb 100644
 --- a/doc/conf.py
 +++ b/doc/conf.py
-@@ -49,6 +49,20 @@ html_css_files = [
+@@ -49,6 +49,21 @@ html_css_files = [
  ]
  sys.path.insert(0, os.path.abspath('_ext'))
  
@@ -28,6 +28,7 @@ index 34c91bf6cd..2296c871bb 100644
 +epub_tocscope = 'includehidden'
 +epub_theme = os.environ.get('CEPH_THEME') if os.environ.get('CEPH_THEME') is not None else 'epub'
 +epub_cover = ('_static/logo.png', '')
++suppress_warnings = ['epub.unknown_project_files']
 +
  extensions = [
      'sphinx.ext.autodoc',
