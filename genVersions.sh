@@ -9,5 +9,8 @@ for v in $VERSIONS; do
 	rm "Ceph Documentation.epub" 2>/dev/null
 	echo "Building $v"
 	./build.sh "$v"
-	mv "Ceph Documentation.epub" "./generated/Ceph Documentation - Version ${v}.epub"
+	pushd ceph
+	release="$(cat src/ceph_release | head -n 2 | tail -n 1)-$(git describe --exact-match --tags HEAD~2 2> /dev/null || git rev-parse --short HEAD~2)"
+	mv "../Ceph Documentation.epub" "../generated/Ceph Documentation - ${release^}.epub"
+	popd 
 done

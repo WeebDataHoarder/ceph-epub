@@ -12,7 +12,7 @@ pushd ceph
 rm -rf build-doc
 
 git fetch --all
-
+git reset --hard
 git am --abort
 git clean --force -x
 git reset --hard "${CEPH_TAG}"
