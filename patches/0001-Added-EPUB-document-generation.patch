@@ -1,0 +1,35 @@
+From a6b542efbb169e7cb11446d41bb4b02625a644c4 Mon Sep 17 00:00:00 2001
+From: WeebDataHoarder <57538841+WeebDataHoarder@users.noreply.github.com>
+Date: Mon, 16 Aug 2020 08:00:00 +0200
+Subject: [PATCH] Added EPUB document generation
+
+---
+ admin/build-doc | 5 +++++
+ 1 file changed, 5 insertions(+)
+
+diff --git a/admin/build-doc b/admin/build-doc
+index 96a87d76fb..2d308033e1 100755
+--- a/admin/build-doc
++++ b/admin/build-doc
+@@ -60,6 +60,7 @@ fi
+ $vdir/bin/pip install --quiet -r $TOPDIR/admin/doc-requirements.txt -r $TOPDIR/admin/doc-python-common-requirements.txt
+ 
+ install -d -m0755 \
++    $TOPDIR/build-doc/output/epub \
+     $TOPDIR/build-doc/output/html \
+     $TOPDIR/build-doc/output/man
+ 
+@@ -124,6 +125,10 @@ for target in $sphinx_targets; do
+             builder=dirhtml
+             extra_opt="-D graphviz_output_format=svg"
+             ;;
++        epub)
++            builder=epub
++            extra_opt="-D graphviz_output_format=svg"
++            ;;
+         man)
+             extra_opt="-t man"
+             ;;
+-- 
+2.25.1
+

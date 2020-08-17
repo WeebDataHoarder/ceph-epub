@@ -1,0 +1,37 @@
+From d288b1e403a963bf3c0fc1a72c486d0b5e4423ea Mon Sep 17 00:00:00 2001
+From: WeebDataHoarder <57538841+WeebDataHoarder@users.noreply.github.com>
+Date: Mon, 16 Aug 2020 08:00:00 +0200
+Subject: [PATCH] Added conf.py changes for EPUB generation
+
+---
+ doc/conf.py | 14 ++++++++++++++
+ 1 file changed, 14 insertions(+)
+
+diff --git a/doc/conf.py b/doc/conf.py
+index 34c91bf6cd..2296c871bb 100644
+--- a/doc/conf.py
++++ b/doc/conf.py
+@@ -49,6 +49,20 @@ html_css_files = [
+ ]
+ sys.path.insert(0, os.path.abspath('_ext'))
+ 
++version = release = os.popen('git describe --exact-match --tags HEAD~2 2> /dev/null || git rev-parse --short HEAD~2').read()
++epub_basename = html_title
++html_short_title = epub_title = html_title + ' - Version ' + release
++epub_author = 'Ceph'
++epub_publisher = 'Ceph'
++epub_copyright = copyright
++epub_language = 'en'
++epub_identifier = 'https://github.com/ceph/ceph/tree/' + release
++epub_scheme = 'URL'
++epub_uid = epub_identifier
++epub_tocscope = 'includehidden'
++epub_theme = os.environ.get('CEPH_THEME') if os.environ.get('CEPH_THEME') is not None else 'epub'
++epub_cover = ('_static/logo.png', '')
++
+ extensions = [
+     'sphinx.ext.autodoc',
+     'sphinx_autodoc_typehints',
+-- 
+2.25.1
+
