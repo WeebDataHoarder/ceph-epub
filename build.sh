@@ -27,6 +27,6 @@ sed -i 's#bin/sphinx-build -W -a#bin/sphinx-build -W --keep-going -a#g' admin/bu
 export CEPH_THEME="epub"
 ./admin/build-doc epub
 
-cp -vf "build-doc/output/epub/"*.epub ../
+mv -vf "build-doc/output/epub/"*.epub ../
 
 popd

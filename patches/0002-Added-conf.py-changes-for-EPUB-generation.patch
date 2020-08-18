@@ -17,7 +17,7 @@ index 34c91bf6cd..2296c871bb 100644
  
 +release = os.popen('cat ../src/ceph_release | head -n 2 | tail -n 1').read().strip() + "-" + os.popen('git describe --exact-match --tags HEAD~2 2> /dev/null || git rev-parse --short HEAD~2').read().strip()
 +version = release = release[0].upper() + release[1:]
-+epub_basename = html_title
++epub_basename = html_title + ' - ' + release
 +html_short_title = epub_title = html_title + ' - ' + release
 +epub_author = 'Ceph'
 +epub_publisher = 'Ceph'
