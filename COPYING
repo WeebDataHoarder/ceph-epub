@@ -1,0 +1,12 @@
+Format-Specification: http://anonscm.debian.org/viewvc/dep/web/deps/dep5/copyright-format.xml?revision=279&view=markup
+Name: ceph-epub
+Maintainer: WeebDataHoarder
+Source: https://github.com/WeebDataHoarder/ceph-epub
+
+Files: *
+Copyright: (c) 2020 WeebDataHoarder
+License: LGPL-2.1 or LGPL-3
+
+Files: generated/*
+Copyright: (c) 2010-2012 New Dream Network and contributors (ceph upstream)
+License: Creative Commons Attribution Share Alike 3.0 (CC-BY-SA-3.0)
